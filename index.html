@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bakery — Fresh Bakes in Banguluru | Redes Creation</title>
+  <meta name="description" content="Bakery in Banguluru — artisan breads, pastries and catering. Order online or visit our store. Phone +91 96766 59153" />
+  <meta name="keywords" content="bakery, pastries, banguluru, breads, cakes, catering" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Tailwind CDN for prototyping -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Custom small utility to match request: max-w-6x1 */
+    .max-w-6x1 { max-width: 1180px; }
+    /* gentle paper background like reference */
+    body{ background: #faf7f2; }
+
+    /* subtle shadow for product cards */
+    .card-shadow{ box-shadow: 0 6px 18px rgba(20,20,20,0.06); }
+
+    /* hero overlay text style */
+    .hero-title{ font-family: 'Playfair Display', serif; font-size: clamp(28px,6vw,64px); letter-spacing: 1px; }
+    .accent-gold{ color:#b8862b; }
+
+    /* accessible focus ring */
+    :focus{ outline: 3px solid rgba(184,134,43,0.18); outline-offset: 3px; }
+
+    /* small tweaks for carousel arrows */
+    .arrow-btn{ background: rgba(255,255,255,0.85); }
+
+    /* responsive image container like the reference */
+    .image-bg{ background-size: cover; background-position: center; }
+
+    /* simple rating star color */
+    .star-fill{ color:#c59a2a; }
+
+    /* Footer small text */
+    .muted{ color:#6b6b6b; }
+  </style>
+
+  <!-- SEO/social preview -->
+  <meta property="og:title" content="Bakery — Fresh Bakes in Banguluru" />
+  <meta property="og:description" content="Artisan breads, pastries and cakes. Order online or visit our store in Banguluru." />
+  <meta property="og:image" content="/mnt/data/7e4055a1-f094-46db-8bab-f725637affa4.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="text-gray-800 antialiased">
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6x1 mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3" aria-label="Bakery home">
+          <img src="https://img.freepik.com/premium-vector/bakery-logo-template_441059-123.jpg?w=2000" alt="Bakery logo" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <span class="block font-serif text-xl">Bakery</span>
+            <small class="muted block text-xs">Baked goods since 1990</small>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex gap-6 text-sm font-medium" aria-label="Primary">
+          <a href="index.html" class="hover:underline">Home</a>
+          <a href="menu.html" class="hover:underline">Products</a>
+          <a href="about.html" class="hover:underline">About</a>
+          <a href="gallery.html" class="hover:underline">Gallery</a>
+          <a href="blog.html" class="hover:underline">Blog</a>
+          <a href="contact.html" class="hover:underline">Contact</a>
+        </nav>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-4">
+          <a href="tel:+919676659153" class="text-sm">+91 96766 59153</a>
+          <a href="mailto:info@redescreation.in" class="text-sm muted">info@redescreation.in</a>
+        </div>
+
+        <!-- CTA -->
+        <a href="contact.html" class="hidden md:inline-block px-4 py-2 rounded-full border border-gold-500 text-sm" style="border-color:#c59a2a;">Order Now</a>
+
+        <!-- Mobile hamburger -->
+        <button id="menuBtn" class="md:hidden p-2 rounded-md" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden bg-white border-t hidden" role="dialog" aria-modal="true">
+      <div class="px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <img src="https://img.freepik.com/premium-vector/bakery-logo-template_441059-123.jpg?w=2000" alt="logo small" class="w-10 h-10 rounded-full object-cover" />
+            <div>
+              <div class="font-semibold">Bakery</div>
+              <small class="muted">Banguluru</small>
+            </div>
+          </div>
+          <button id="mobileClose" class="p-2">Close</button>
+        </div>
+
+        <nav class="mt-4 flex flex-col gap-3">
+          <a href="index.html" class="py-2">Home</a>
+          <a href="menu.html" class="py-2">Products</a>
+          <a href="about.html" class="py-2">About</a>
+          <a href="gallery.html" class="py-2">Gallery</a>
+          <a href="blog.html" class="py-2">Blog</a>
+          <a href="contact.html" class="py-2">Contact</a>
+        </nav>
+
+        <div class="mt-6 flex items-center gap-4">
+          <a href="#" aria-label="facebook">FB</a>
+          <a href="#" aria-label="instagram">IG</a>
+          <a href="#" aria-label="twitter">TW</a>
+        </div>
+
+        <div class="mt-4 text-sm muted">Search</div>
+        <input aria-label="mobile-search" class="w-full border rounded px-3 py-2 mt-2" placeholder="Search products" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home">
+    <section class="relative overflow-hidden">
+      <div class="image-bg h-[520px] md:h-[640px]" style="background-image:url('https://img.freepik.com/free-vector/hand-drawn-bakery-pattern-background_23-2150849903.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-r from-white/60 to-white/10"></div>
+
+        <div class="max-w-6x1 mx-auto relative z-10 px-6 h-full flex items-center">
+          <div class="w-full md:w-2/3 lg:w-1/2">
+            <p class="text-sm uppercase accent-gold font-medium">Delicious & Handcrafted</p>
+            <h1 class="hero-title mt-2">Freshly Baked Every Morning — Taste Tradition</h1>
+            <p class="mt-4 text-gray-700 max-w-prose">Locally-baked breads, pastries and custom cakes made from premium ingredients. Visit our Banguluru store or order online.</p>
+
+            <div class="mt-6 flex gap-4">
+              <a href="contact.html" class="px-5 py-3 rounded-full shadow card-shadow bg-white font-semibold">Order Now</a>
+              <a href="menu.html" class="px-5 py-3 rounded-full border border-gray-200">View Menu</a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-8">
+              <div class="text-sm">
+                <div class="muted">Opening</div>
+                <div class="font-semibold">Mon - Sun 7:00 AM - 9:00 PM</div>
+              </div>
+
+              <div class="text-sm">
+                <div class="muted">Phone</div>
+                <a href="tel:+919676659153" class="font-semibold">+91 96766 59153</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- hero product image on right (only on large screens) -->
+          <div class="hidden lg:block lg:w-1/2 pr-12">
+            <img src="https://tiimg.tistatic.com/fp/1/007/978/moist-creamy-fresh-delicious-sweet-taste-choco-chip-loaded-chocolate-pastry-144.jpg" alt="choco pastry" class="w-full object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured services / products small icons grid -->
+    <section id="services" class="py-12">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="bg-white rounded-lg p-6 card-shadow">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="artisan-bread" class="mx-auto w-20 h-20 object-cover rounded-full" />
+            <h3 class="mt-4 font-semibold">Artisan Breads</h3>
+            <p class="text-sm muted mt-2">Sourdough, Ciabatta & more</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 card-shadow">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="pastries" class="mx-auto w-20 h-20 object-cover rounded-full" />
+            <h3 class="mt-4 font-semibold">Pastries</h3>
+            <p class="text-sm muted mt-2">Croissants, Danishes & tarts</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 card-shadow">
+            <div class="mx-auto w-20 h-20 flex items-center justify-center rounded-full bg-gray-50"><i class="fa-solid fa-cake-candles"></i></div>
+            <h3 class="mt-4 font-semibold">Cakes</h3>
+            <p class="text-sm muted mt-2">Custom celebration cakes</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 card-shadow">
+            <div class="mx-auto w-20 h-20 flex items-center justify-center rounded-full bg-gray-50"><i class="fa-solid fa-mug-saucer"></i></div>
+            <h3 class="mt-4 font-semibold">Coffee & Drinks</h3>
+            <p class="text-sm muted mt-2">Espresso, Cold brew & more</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular products grid (replicates reference style) -->
+    <section id="products" class="py-12 bg-transparent">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="font-serif text-3xl">Popular Products</h2>
+          <p class="muted mt-2">Our bestsellers loved by the community</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- product card -->
+          <article class="bg-white rounded-lg card-shadow p-6 text-center" aria-labelledby="p1">
+            <div class="relative">
+              <span class="absolute top-3 left-3 px-2 py-1 text-xs bg-yellow-600 text-white rounded">SALE</span>
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="pain depices" class="mx-auto w-40 h-40 object-contain" />
+            </div>
+            <div class="mt-4">
+              <div class="star-fill">★★★★★</div>
+              <h3 id="p1" class="mt-2 font-semibold">Pain Depices</h3>
+              <div class="muted line-through text-sm">$36.00</div>
+              <div class="font-bold mt-1">$24.00</div>
+              <button class="mt-4 px-4 py-2 rounded-full border">Buy Now</button>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-lg card-shadow p-6 text-center" aria-labelledby="p2">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="roule-saucisse" class="mx-auto w-40 h-40 object-contain" />
+            <div class="mt-4">
+              <div class="star-fill">★★★★★</div>
+              <h3 id="p2" class="mt-2 font-semibold">Roule Saucisse</h3>
+              <div class="font-bold mt-1">$29.00</div>
+              <button class="mt-4 px-4 py-2 rounded-full border">Buy Now</button>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-lg card-shadow p-6 text-center" aria-labelledby="p3">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="coffee-intense" class="mx-auto w-40 h-40 object-contain" />
+            <div class="mt-4">
+              <div class="star-fill">★★★★★</div>
+              <h3 id="p3" class="mt-2 font-semibold">Coffee Intense</h3>
+              <div class="font-bold mt-1">$40.00</div>
+              <button class="mt-4 px-4 py-2 rounded-full border">Buy Now</button>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-lg card-shadow p-6 text-center" aria-labelledby="p4">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="chocolate-cookie" class="mx-auto w-40 h-40 object-contain" />
+            <div class="mt-4">
+              <div class="star-fill">★★★★★</div>
+              <h3 id="p4" class="mt-2 font-semibold">Chocolate Cookie</h3>
+              <div class="font-bold mt-1">$15.00</div>
+              <button class="mt-4 px-4 py-2 rounded-full border">Buy Now</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-12">
+      <div class="max-w-6x1 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="font-serif text-3xl">About Bakery</h2>
+          <p class="mt-4">Our story starts with a small bakery in Banguluru specializing in traditional recipes and artisanal techniques. We prioritise locally-sourced ingredients and sustainable packaging.</p>
+
+          <ul class="mt-4 list-disc pl-5 muted">
+            <li>Handmade daily</li>
+            <li>No preservatives</li>
+            <li>Custom orders & catering</li>
+          </ul>
+
+          <div class="mt-6">
+            <a href="gallery.html" class="px-4 py-2 rounded-full border">See our work</a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-lg p-4 card-shadow">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.SEtHlNppBdVJa-woPPilQAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="founder" class="w-full h-40 object-cover rounded" />
+            <h4 class="mt-3 font-semibold">Founder — Rahman</h4>
+            <p class="muted text-sm">Passionate baker with 20+ years of experience.</p>
+          </div>
+
+          <div class="bg-white rounded-lg p-4 card-shadow">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.SEtHlNppBdVJa-woPPilQAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="team" class="w-full h-40 object-cover rounded" />
+            <h4 class="mt-3 font-semibold">Our Team</h4>
+            <p class="muted text-sm">A small, dedicated team crafting every piece by hand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Gallery with filters -->
+    <section id="portfolio" class="py-12 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="text-center mb-6">
+          <h2 class="font-serif text-3xl">Gallery</h2>
+          <p class="muted mt-2">A selection of our signature bakes</p>
+        </div>
+
+        <div class="flex gap-3 justify-center mb-6">
+          <button class="filter-btn px-4 py-2 border rounded" data-filter="*">All</button>
+          <button class="filter-btn px-4 py-2 border rounded" data-filter="bread">Bread</button>
+          <button class="filter-btn px-4 py-2 border rounded" data-filter="pastry">Pastry</button>
+          <button class="filter-btn px-4 py-2 border rounded" data-filter="cakes">Cakes</button>
+        </div>
+
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <figure class="gallery-item bg-gray-50 rounded overflow-hidden" data-category="bread">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="loaf" class="w-full h-56 object-cover" />
+            <figcaption class="p-4">
+              <div class="font-semibold">Sourdough Loaf</div>
+              <div class="muted text-sm">Slow ferment, tangy crumb</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item bg-gray-50 rounded overflow-hidden" data-category="pastry">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="pastry" class="w-full h-56 object-cover" />
+            <figcaption class="p-4">
+              <div class="font-semibold">Chocolate Pastry</div>
+              <div class="muted text-sm">Buttery layers, rich filling</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item bg-gray-50 rounded overflow-hidden" data-category="cakes">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="cake" class="w-full h-56 object-cover" />
+            <figcaption class="p-4">
+              <div class="font-semibold">Signature Cake</div>
+              <div class="muted text-sm">Custom art & flavours</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-12">
+      <div class="max-w-6x1 mx-auto px-6 text-center">
+        <h2 class="font-serif text-3xl">What People Say</h2>
+        <div class="mt-6 relative">
+          <div id="testCarousel" class="overflow-hidden">
+            <div class="carousel-track flex transition-transform duration-500">
+              <blockquote class="min-w-full px-6 py-8">
+                <p class="text-lg">"Best croissant in town — perfectly flaky."</p>
+                <footer class="mt-4 muted">— Asha, Bangalore</footer>
+              </blockquote>
+
+              <blockquote class="min-w-full px-6 py-8">
+                <p class="text-lg">"Amazing birthday cake, exactly what we wanted."</p>
+                <footer class="mt-4 muted">— Rohit, Banguluru</footer>
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="absolute -left-6 top-1/2 -translate-y-1/2">
+            <button class="arrow-btn p-2 rounded-full" id="prevTest">‹</button>
+          </div>
+          <div class="absolute -right-6 top-1/2 -translate-y-1/2">
+            <button class="arrow-btn p-2 rounded-full" id="nextTest">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Packages -->
+    <section id="pricing" class="py-12 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="font-serif text-3xl">Our Packages</h2>
+          <p class="muted mt-2">Choose from popular plans for events or regular delivery</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-gray-50 rounded card-shadow">
+            <h3 class="font-semibold">Starter</h3>
+            <div class="mt-4 text-2xl font-bold">$29</div>
+            <ul class="mt-4 muted list-disc pl-5">
+              <li>10 breads</li>
+              <li>Delivery included</li>
+            </ul>
+            <button class="mt-6 w-full px-4 py-2 rounded-full border">Select</button>
+          </div>
+
+          <div class="p-6 bg-white rounded card-shadow border-2 border-gold-200" style="border-color:#c59a2a;">
+            <div class="badge text-sm muted">Most Popular</div>
+            <h3 class="font-semibold">Party</h3>
+            <div class="mt-4 text-3xl font-bold">$79</div>
+            <ul class="mt-4 muted list-disc pl-5">
+              <li>Custom cake</li>
+              <li>Assorted pastries</li>
+            </ul>
+            <button class="mt-6 w-full px-4 py-2 rounded-full bg-white">Select</button>
+          </div>
+
+          <div class="p-6 bg-gray-50 rounded card-shadow">
+            <h3 class="font-semibold">Premium</h3>
+            <div class="mt-4 text-2xl font-bold">$129</div>
+            <ul class="mt-4 muted list-disc pl-5">
+              <li>Full catering</li>
+              <li>Event cake design</li>
+            </ul>
+            <button class="mt-6 w-full px-4 py-2 rounded-full border">Select</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog listing (brief) -->
+    <section id="blog" class="py-12">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="text-center mb-6">
+          <h2 class="font-serif text-3xl">From our Journal</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="bg-white card-shadow rounded overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="blog 1" class="w-full h-40 object-cover" />
+            <div class="p-4">
+              <h4 class="font-semibold">How we make sourdough</h4>
+              <p class="muted text-sm mt-2">A step-by-step look into our starter and process.</p>
+              <a href="#" class="text-sm mt-2 inline-block">Read more →</a>
+            </div>
+          </article>
+
+          <article class="bg-white card-shadow rounded overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="blog 2" class="w-full h-40 object-cover" />
+            <div class="p-4">
+              <h4 class="font-semibold">Seasonal tart flavours</h4>
+              <p class="muted text-sm mt-2">Our picks for fruity tarts this season.</p>
+              <a href="#" class="text-sm mt-2 inline-block">Read more →</a>
+            </div>
+          </article>
+
+          <article class="bg-white card-shadow rounded overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="blog 3" class="w-full h-40 object-cover" />
+            <div class="p-4">
+              <h4 class="font-semibold">Baking tips for home</h4>
+              <p class="muted text-sm mt-2">Simple tips to improve your breads at home.</p>
+              <a href="#" class="text-sm mt-2 inline-block">Read more →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ accordion -->
+    <section id="faq" class="py-12 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <h2 class="font-serif text-3xl text-center">FAQ</h2>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <details class="p-4 bg-gray-50 rounded">
+            <summary class="font-semibold">Do you take custom orders?</summary>
+            <p class="mt-2 muted">Yes — please contact us 72 hours before your event for best availability.</p>
+          </details>
+
+          <details class="p-4 bg-gray-50 rounded">
+            <summary class="font-semibold">Do you deliver?</summary>
+            <p class="mt-2 muted">We offer local delivery within Banguluru; rates vary by distance.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12">
+      <div class="max-w-6x1 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="font-serif text-3xl">Get in touch</h2>
+          <p class="muted mt-2">Visit us or send a message — we'll respond within 24 hours.</p>
+
+          <address class="not-italic mt-4 muted">
+            <strong>Bakery</strong><br />
+            Banguluru, India<br />
+            Phone: <a href="tel:+919676659153">+91 96766 59153</a><br />
+            Email: <a href="mailto:info@redescreation.in">info@redescreation.in</a>
+          </address>
+
+          <div class="mt-6">
+            <!-- Simple embedded map (replace with real embed in production) -->
+            <iframe title="Bakery location" src="https://maps.google.com/maps?q=Banguluru&t=&z=13&ie=UTF8&iwloc=&output=embed" class="w-full h-48 rounded" aria-hidden="false"></iframe>
+          </div>
+        </div>
+
+        <form class="bg-white p-6 rounded card-shadow" onsubmit="contactSubmit(event)" aria-label="Contact form">
+          <label class="block">Name <input required name="name" class="w-full border rounded px-3 py-2 mt-2" /></label>
+          <label class="block mt-4">Email <input required type="email" name="email" class="w-full border rounded px-3 py-2 mt-2" /></label>
+          <label class="block mt-4">Phone <input name="phone" class="w-full border rounded px-3 py-2 mt-2" /></label>
+          <label class="block mt-4">Message <textarea name="message" rows="4" class="w-full border rounded px-3 py-2 mt-2"></textarea></label>
+          <div class="flex gap-3 mt-4">
+            <button type="submit" class="px-4 py-2 rounded bg-white border">Send</button>
+            <button type="reset" class="px-4 py-2 rounded border">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t py-8">
+    <div class="max-w-6x1 mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="font-semibold">Bakery</h4>
+        <p class="muted mt-2">Artisan bakery in Banguluru — handcrafted goods and friendly service.</p>
+      </div>
+
+      <div>
+        <h5 class="font-semibold">Quick Links</h5>
+        <ul class="mt-2 muted">
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-semibold">Legal</h5>
+        <ul class="mt-2 muted">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="http://www.redescreation.in" target="_blank" rel="noopener">www.redescreation.in</a></li>
+        </ul>
+      </div>
+    </div>
+ 
+    <div class="max-w-6x1 mx-auto px-6 text-sm muted mt-6 text-center">© <span id="year"></span> Bakery. All rights reserved.</div>
+  </footer>
+
+  <!-- Minimal JS for interactions -->
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    menuBtn.addEventListener('click', ()=>{
+      const open = mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+    mobileClose.addEventListener('click', ()=> mobileMenu.classList.add('hidden'));
+
+    // simple gallery filter
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item=>{
+          if(filter==='*' || item.dataset.category===filter) item.style.display='block'; else item.style.display='none';
+        });
+      });
+    });
+
+    // testimonials carousel
+    const track = document.querySelector('.carousel-track');
+    let idx = 0;
+    document.getElementById('nextTest').addEventListener('click', ()=>{
+      idx = Math.min(idx+1, track.children.length-1);
+      track.style.transform = `translateX(-${idx*100}%)`;
+    });
+    document.getElementById('prevTest').addEventListener('click', ()=>{
+      idx = Math.max(idx-1, 0);
+      track.style.transform = `translateX(-${idx*100}%)`;
+    });
+
+    // simple contact submit mocked
+    function contactSubmit(e){
+      e.preventDefault();
+      alert('Thanks! Your message has been received — we will contact you at the email provided.');
+      e.target.reset();
+    }
+
+    // keyboard accessibility: allow arrow left/right for carousel
+    document.addEventListener('keydown', (ev)=>{
+      if(ev.key==='ArrowRight') document.getElementById('nextTest').click();
+      if(ev.key==='ArrowLeft') document.getElementById('prevTest').click();
+    });
+  </script>
+</body> 
+</html>
